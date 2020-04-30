@@ -74,6 +74,8 @@ test(t => {
 
   transition.effect.setKeyframes({ top: ['200px', '300px', '100px'] });
 
+  getComputedStyle(div).left;
+
   // Reverse transition
   div.style.left = '0px';
   const reversedTransition = div.getAnimations()[0];
@@ -101,6 +103,8 @@ test(t => {
   const portion = transition.effect.getComputedTiming().progress;
 
   transition.effect.setKeyframes({ });
+
+  getComputedStyle(div).left;
 
   div.style.left = '0px';
   const reversedTransition = div.getAnimations()[0];
