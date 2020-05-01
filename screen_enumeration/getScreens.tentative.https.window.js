@@ -1,4 +1,6 @@
 // META: global=window,dedicatedworker,sharedworker,serviceworker
+// META: script=/resources/testdriver.js
+// META: script=/resources/testdriver-vendor.js
 'use strict';
 
 promise_test(async testCase => {
@@ -6,6 +8,7 @@ promise_test(async testCase => {
 }, 'self.getScreens is present');
 
 promise_test(async testCase => {
+  await test_driver.set_permission({name: 'window-placement'}, 'granted');
   const screens = await self.getScreens();
   assert_greater_than(screens.length, 0);
 
